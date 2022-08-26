@@ -1,0 +1,263 @@
+@import './variables/fonts.scss';
+@import './variables/transitions.scss';
+
+:root {
+  --main-text: #FFFFFF;
+  --main-bg: #0E0D14;
+  --additional-gray: #A4A1A4;
+  --additional-violet: #9993FF;
+  --additional-opensea: #407FDB;
+  --additional-discord: #5056C0;
+  --additional-black: #232228;
+  --gradient-violet: linear-gradient(92.55deg, #9671FF 0.41%, #BB63FF 64.03%);
+  --gradient-stroke: linear-gradient(135deg, #694AC2 0%, #4489BB 100%);
+
+  --container-padding: 3.2rem;
+  --section-margin: 22.4rem;
+  --top-padding: 10.4rem;
+  @include w1199 {
+    --section-margin: 12rem;
+    --top-padding: 6.4rem;
+  }
+  @include w699 {
+    --container-padding: 1.6rem;
+    --section-margin: 10.4rem;
+  }
+}
+
+html {
+  background: linear-gradient(86.23deg, #0B112C 5.27%, #06070A 26.77%, #06070A 76.62%, #210920 99.09%);
+  font-size: 10px;
+  @include more-w1729 {
+    font-size: 0.578vw;
+  }
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--gradient-violet);
+    border-radius: 0.2rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--main-bg);
+  }
+  &.loaded body{
+    opacity: 1;
+  }
+  &.fixed {
+    overflow: hidden;
+    body {
+      overflow: hidden;
+    }
+  }
+  &.resizing {
+    .roadmap__item * {
+      transition: none!important;
+    }
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  opacity: 0;
+  transition: opacity 0.2s;
+  @include w1199 {
+    font-size: 1.4rem;
+  }
+  @include w1023 {
+    font-size: 1.6rem;
+  }
+  @include w699 {
+    font-size: 1.4rem;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding-top: var(--top-padding);
+}
+
+.container {
+  max-width: 147.2rem;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  box-sizing: content-box;
+}
+
+.section-margin {
+  margin-bottom: var(--section-margin);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+ul,
+ol {
+  margin: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+  &:not([class]),
+  &[class='focus-visible'],
+  &[class=''] {
+    margin-left: 0.4rem;
+    color: #9993FF;
+    @include hover {
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+    @include active {
+      &:active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button,
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  color: #FFFFFF;
+  padding: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+  font-weight: 900;
+  font-size: 6.4rem;
+  line-height: 1.12;
+  @include w1023 {
+    font-size: 3.2rem;
+    line-height: 1.25;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  border-radius: 0.8rem;
+  color: var(--main-text);
+  cursor: pointer;
+  &-primary {
+    background: var(--gradient-violet);
+    transition: background-color 0.2s;
+    @include hover {
+      &:hover,
+      &:focus {
+        background-color: var(--additional-violet);
+      }
+    }
+    @include active {
+      &:active {
+        background-color: var(--additional-violet);
+      }
+    }
+  }
+  &-secondary {
+    background: none;
+    border: 0.1rem solid var(--additional-black);
+    transition: background-color 0.2s;
+    @include hover {
+      &:hover,
+      &:focus {
+        background-color: var(--additional-violet);
+      }
+    }
+    @include active {
+      &:active {
+        background-color: var(--additional-violet);
+      }
+    }
+  }
+}
+
+.gradient-border {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -0.1rem;
+    left: -0.1rem;
+    z-index: -1;
+    width: calc(100% + 0.2rem);
+    height: calc(100% + 0.2rem);
+    background: var(--gradient-stroke);
+  }
+}
+
+.roadmap-item__text {
+  b {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+  }
+  p + b {
+    margin-top: 4rem;
+  }
+}

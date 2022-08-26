@@ -1,0 +1,56 @@
+{
+  "site": "Rebels club",
+  "meta": {
+    "index": {
+      "title": "Rebels club | Home",
+      "description": "",
+      "keywords": ""
+    },
+    "roadmap": {
+      "title": "Rebels club | Roadmap",
+      "description": "",
+      "keywords": ""
+    },
+    "create-with-us": {
+      "title": "Rebels club | Create with us",
+      "description": "",
+      "keywords": ""
+    },
+    "vacancies": {
+      "title": "Rebels club | Vacancies",
+      "description": "",
+      "keywords": ""
+    },
+    "faq": {
+      "title": "Rebels club | F.A.Q.",
+      "description": "",
+      "keywords": ""
+    }
+  },
+  "header": {
+    "menu": [
+      "Home",
+      "Roadmap",
+      "Create with us",
+      "Vacancies",
+      "F.A.Q.",
+      "Medium"
+    ],
+    "buy": "Buy"
+  },
+  "footer": {
+    "terms": "Terms & Conditions",
+    "copyright": "All rights reserved"
+  },
+  "roadmap": {
+    "statuses": [
+      "Planned",
+      "TBA",
+      "In development",
+      "Beta",
+      "Alpha",
+      "Done",
+      "Published"
+    ]
+  }
+}

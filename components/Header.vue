@@ -4,7 +4,7 @@
       <NuxtLink to="/" class="header__logo">
         <SvgLogo/>
       </NuxtLink>
-      <div :class="['header__wrap', { 'opened': openedMenu }]">
+      <div :class="['header__wrap', { 'opened': openedMenu }]" v-scroll-lock="openedMenu">
         <nav class="header__nav">
           <ul class="header__menu">
             <li v-for="(item, index) in menu" :key="index" class="header-menu__item">
@@ -23,19 +23,19 @@
         <div class="header__info">
           <a href="#" class="header-info__social discord"/>
           <a href="#" class="header-info__social twitter"/>
-          <div class="header-info__dropdown" v-click-outside="() => dropdownOpened = false">
-            <button class="btn btn-secondary header-info-dropdown__btn" @click.prevent="dropdownOpened = !dropdownOpened">
+          <div class="header-info__dropdown" v-click-outside="() => openedDropdown = false">
+            <button class="btn btn-secondary header-info-dropdown__btn" @click.prevent="openedDropdown = !openedDropdown">
               {{ $t('header.buy') }}
-              <svg v-if="!dropdownOpened" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg v-if="!openedDropdown" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.99996 8.50829L11.2541 4.2541L12.0791 5.07906L6.99996 10.1582L1.92081 5.07906L2.74577 4.2541L6.99996 8.50829Z" fill="currentColor"/>
               </svg>
-              <svg v-if="dropdownOpened" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg v-if="openedDropdown" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3.46448 3.53546L10.5355 10.6065" stroke="white"/>
                 <path d="M3.4646 10.6066L10.5357 3.5355" stroke="currentColor"/>
               </svg>
             </button>
             <transition name="fade">
-              <ul v-if="dropdownOpened" class="header-info-dropdown__list">
+              <ul v-if="openedDropdown" class="header-info-dropdown__list">
                 <li class="header-info-dropdown__item">
                   <a href="#" class="header-info-dropdown__link">Opensea</a>
                 </li>
@@ -57,7 +57,7 @@ export default {
   name: 'Header',
   data () {
     return {
-      dropdownOpened: false,
+      openedDropdown: false,
       openedMenu: false,
       menu: [
         '/',
@@ -71,7 +71,8 @@ export default {
   },
   watch: {
     $route () {
-      this.dropdownOpened = false
+      this.openedDropdown = false
+      this.openedMenu = false
     }
   }
 }

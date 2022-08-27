@@ -1,8 +1,8 @@
 <template>
   <section class="section-margin roadmap">
     <div class="container">
-      <h1 class="title roadmap__title">Roadmap</h1>
-      <p class="roadmap__text">We have extensive expertise in web3 and ready to launch any kind of projects together! Consult with us, create with us, launch with us!</p>
+      <h1 class="title roadmap__title">{{ $t('roadmap.title') }}</h1>
+      <p class="roadmap__text">{{ $t('roadmap.text') }}</p>
       <ul class="roadmap__statuses">
         <li v-for="(item, index) in statuses" :key="index" class="roadmap__status">
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +16,7 @@
           <div class="roadmap-item__scalable" :class="{ 'active': index === activeIndex }" ref="roadmapItems">
             <div class="roadmap-item__overflow">
               <button v-if="index !== activeIndex" class="roadmap-item__area" @click.prevent="activationItem(index)"/>
-              <img class="roadmap-item__img" v-lazy-load :data-src="item.image" :alt="$t(`roadmap.items[${index}]`)">
+              <img class="roadmap-item__img" v-lazy-load :data-src="item.image" :alt="item.title">
               <div class="roadmap-item__content">
                 <h2 class="roadmap-item__title">{{ item.title }}</h2>
                 <transition name="fade">
@@ -128,6 +128,17 @@ export default {
       ]
     }
   },
+  head () {
+    return {
+      title: this.$t('meta.roadmap.title'),
+      meta: [
+        { hid: 'description', name: 'description', content: this.$t('meta.roadmap.description') },
+        { hid: 'keywords', name: 'keywords', content: this.$t('meta.roadmap.keywords') },
+        { hid: 'og:title', property: 'og:title', content: this.$t('meta.roadmap.title') },
+        { hid: 'og:description', property: 'og:description', content: this.$t('meta.roadmap.description') }
+      ]
+    }
+  },
   mounted () {
     this.recalculation()
     this.$nextTick(() => {
@@ -139,9 +150,12 @@ export default {
       })
     })
   },
+  destroyed () {
+    this.$nuxt.$off('win-resize')
+  },
   methods: {
     recalculation () {
-      this.heightBlock = this.$refs.roadmapItems[0].closest('.roadmap__item').offsetHeight
+      this.heightBlock = document.querySelector('.roadmap__item').offsetHeight
       this.$refs.roadmapItems.forEach((item) => {
         const container = item.closest('.roadmap__item')
         item.style.top = `${container.offsetTop}px`

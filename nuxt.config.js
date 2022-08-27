@@ -65,6 +65,7 @@ export default {
   components: [
     '~/components',
     { path: '~/components/svg/', prefix: 'svg' },
+    { path: '~/components/form/', prefix: 'form' },
     { path: '~/components/index/', prefix: 'index' },
     { path: '~/components/roadmap/', prefix: 'roadmap' }
   ],

@@ -1,7 +1,7 @@
 <template>
   <div class="notfound">
     <p class="notfound__text">404</p>
-    <nuxt-link to="/" class="notfound__btn">На главную</nuxt-link>
+    <NuxtLink to="/" class="notfound__btn">На главную</NuxtLink>
   </div>
 </template>
 

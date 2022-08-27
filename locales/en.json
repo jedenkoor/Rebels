@@ -27,6 +27,29 @@
       "keywords": ""
     }
   },
+  "form": {
+    "fields": {
+      "email": "Email",
+      "companyName": "Company name",
+      "companyType": "Company type",
+      "describe": "Describe who you are / your company. What kind of project you want to launch?",
+      "agreeTerms": "I agree to share my email address with Rebel’s Club",
+      "position": "Position",
+      "name": "Name",
+      "number": "Telegram or phone number",
+      "portfolioLink": "Provide a link to your portfolio or code repository",
+      "previousWork": "We would like to know more about you. Share a couple of lines that describe your previous work, and your expectations",
+      "stack": "What is your technology stack? What software or apps do you use?",
+      "salary": "Salary expectation",
+      "howLearn": "How did you learn about us?",
+      "portfolioFile": "Attach a cover letter, resume, or portfolio"
+    },
+    "add": "Add file",
+    "btn": {
+      "vacancy": "Send an application",
+      "contact": "Contact us"
+    }
+  },
   "header": {
     "menu": [
       "Home",
@@ -43,6 +66,8 @@
     "copyright": "All rights reserved"
   },
   "roadmap": {
+    "title": "Roadmap",
+    "text": "We have extensive expertise in web3 and ready to launch any kind of projects together! Consult with us, create with us, launch with us!",
     "statuses": [
       "Planned",
       "TBA",
@@ -52,5 +77,15 @@
       "Done",
       "Published"
     ]
+  },
+  "vacancies": {
+    "title": "Vacancies",
+    "text": "We have extensive expertise in web3 and ready to launch any kind of projects together! Consult with us, create with us, launch with us!",
+    "more": "Read more",
+    "apply": "Apply"
+  },
+  "faq": {
+    "title": "F.A.Q.",
+    "text": "A collection of degenerates, punks, and misfits. Gods of the metaverse & masters of our own universe. DeGods can be converted to DeadGods with DUST. A collection of degenerates, punks, and misfits. Gods of the metaverse & masters of our own universe. DeGods can be converted to DeadGods with DUST."
   }
 }

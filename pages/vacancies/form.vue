@@ -1,5 +1,9 @@
 <template>
-  <FormBase page="vacancy"/>
+  <section class="section-margin vacancy-form">
+    <div class="container">
+      <FormBase page="vacancy"/>
+    </div>
+  </section>
 </template>
 
 <script>

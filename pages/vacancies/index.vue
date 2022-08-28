@@ -5,7 +5,7 @@
       <p class="vacancies__text">{{ $t('vacancies.text') }}</p>
       <ul class="vacancies__list">
         <li v-for="(item, index) in vacancies" :key="index" class="vacancies__item">
-          <NuxtLink :to="item.link" class="vacancies-item__link">
+          <NuxtLink :to="`/vacancies/${item.link}`" class="vacancies-item__link">
             <div class="vacancies-item__info">
               <h2 class="vacancies-item__title">{{ item.title }}</h2>
               <p class="vacancies-item__text">{{ item.shortDescription }}</p>
@@ -109,7 +109,13 @@ export default {
       color: var(--additional-gray);
     }
     &__btn {
+      margin-left: 1rem;
       padding: 1.5rem 2.4rem;
+      white-space: nowrap;
+      @include w699 {
+        padding: 1rem 1.5rem;
+        font-size: 1.4rem;
+      }
     }
   }
 }

@@ -1,7 +1,9 @@
 <template>
   <section class="section-margin create">
     <div class="container">
-      <h1 class="title create__title">Let’s build together</h1>
+      <h1 class="title create__title">{{ $t('create-with-us.title') }}</h1>
+      <p class="create__text">{{ $t('create-with-us.text') }}</p>
+      <FormBase page="contact"/>
     </div>
   </section>
 </template>
@@ -28,6 +30,12 @@ export default {
   &__title {
     margin-bottom: 1.6rem;
     text-align: center;
+  }
+  &__text {
+    max-width: 86.1rem;
+    margin: 0 auto 6rem;
+    text-align: center;
+    color: var(--additional-gray);
   }
 }
 </style>

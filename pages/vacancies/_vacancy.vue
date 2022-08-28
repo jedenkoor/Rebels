@@ -54,6 +54,7 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     width: 30rem;
+    max-width: 100%;
     padding: 2.3rem 0;
     margin-top: 8rem;
   }

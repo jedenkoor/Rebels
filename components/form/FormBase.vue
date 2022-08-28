@@ -1,5 +1,5 @@
 <template>
-  <form v-if="mounted" class="section-margin form">
+  <form v-if="mounted" class="form">
     <template v-for="(field, key) in fields">
       <component
         v-if="field.page.includes(page)"
@@ -9,6 +9,7 @@
         :field="field"
         :valid="validObj.fields[key]"
         v-model="field.value"
+        @loadFile="loadFile"
       />
     </template>
     <button class="btn btn-primary form__submit" type="submit" @click.prevent.stop="submit">
@@ -32,15 +33,15 @@ export default {
     return {
       mounted: false,
       fields: {
-        // position: {
-        //   template: 'Select',
-        //   value: '',
-        //   type: 'select',
-        //   page: ['vacancy'],
-        //   vuelidate: {
-        //     required
-        //   }
-        // },
+        position: {
+          template: 'Select',
+          value: '',
+          type: 'select',
+          page: ['vacancy'],
+          vuelidate: {
+            required
+          }
+        },
         name: {
           template: 'Input',
           value: '',
@@ -54,11 +55,29 @@ export default {
           template: 'Input',
           value: '',
           type: 'email',
-          page: ['vacancy'],
+          page: ['vacancy', 'contact'],
           vuelidate: {
             required,
             email: val => /^[0-9a-z\-._]+@[0-9a-z\-_]{2,}.[a-z]{2,}$/i.test(val)
           }
+        },
+        companyName: {
+          template: 'Input',
+          value: '',
+          type: 'text',
+          page: ['contact']
+        },
+        companyType: {
+          template: 'Input',
+          value: '',
+          type: 'text',
+          page: ['contact']
+        },
+        describe: {
+          template: 'Input',
+          value: '',
+          type: 'text',
+          page: ['contact']
         },
         number: {
           template: 'Input',
@@ -109,7 +128,7 @@ export default {
           template: 'Terms',
           value: false,
           type: 'checkbox',
-          page: ['vacancy'],
+          page: ['vacancy', 'contact'],
           vuelidate: {
             required,
             sameAs: sameAs(() => true)
@@ -142,6 +161,9 @@ export default {
     })
   },
   methods: {
+    loadFile (file, fieldName) {
+      this.fields[fieldName].value = file
+    },
     submit () {
       this.$v.fields.$reset()
       this.$v.fields.$touch()
@@ -162,6 +184,15 @@ export default {
   max-width: 47.4rem;
   margin-right: auto;
   margin-left: auto;
+  @include w1300 {
+    max-width: 39rem;
+  }
+  @include w1023 {
+    max-width: 43rem;
+  }
+  @include w699 {
+    max-width: none;
+  }
   &__submit {
     width: 100%;
     display: block;

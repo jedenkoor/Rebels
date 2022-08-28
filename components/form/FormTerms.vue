@@ -46,7 +46,6 @@ export default {
   &__checkbox {
     display: flex;
     align-items: center;
-    width: max-content;
     color: var(--additional-gray);
     cursor: pointer;
   }
@@ -83,6 +82,7 @@ export default {
     &:first-of-type {
       position: relative;
       display: flex;
+      flex-shrink: 0;
       width: 3rem;
       height: 3rem;
       margin-right: 1.6rem;

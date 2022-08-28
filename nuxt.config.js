@@ -85,6 +85,7 @@ export default {
     'nuxt-healthcheck',
     '@nuxtjs/robots',
     'vue-scrollto/nuxt',
+    'nuxt-vue-select',
     ['nuxt-lazy-load', {
       images: true,
       videos: false,

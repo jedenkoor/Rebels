@@ -8,7 +8,8 @@
 
 <script>
 export default {
-  name: 'VacancyFormPage'
+  name: 'VacancyFormPage',
+  layout: 'page'
 }
 </script>
 

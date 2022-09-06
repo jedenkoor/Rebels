@@ -23,6 +23,7 @@ import vacancies from '~/data/vacancies.js'
 
 export default {
   name: 'VacanciesPage',
+  layout: 'page',
   data () {
     return {
       vacancies

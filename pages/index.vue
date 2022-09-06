@@ -1,14 +1,20 @@
 <template>
-  <section class="section-margin banner">
-    <div class="container">
-      <h1 class="title banner__title">Home</h1>
-    </div>
-  </section>
+  <div>
+    <IndexBanner/>
+    <IndexProjects/>
+    <IndexWorld/>
+    <IndexNews/>
+    <IndexPartners/>
+    <IndexTeam/>
+    <IndexPromo/>
+    <IndexSocials/>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  layout: 'page'
 }
 </script>
 

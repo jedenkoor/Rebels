@@ -15,6 +15,7 @@ import vacancies from '~/data/vacancies.js'
 
 export default {
   name: 'VacancyPage',
+  layout: 'page',
   data () {
     return {
       vacancies
@@ -53,10 +54,10 @@ export default {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    width: 30rem;
+    width: 72.4rem;
     max-width: 100%;
     padding: 2.3rem 0;
-    margin-top: 8rem;
+    margin-top: 6.4rem;
   }
 }
 </style>

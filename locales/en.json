@@ -25,6 +25,11 @@
       "title": "Rebels club | F.A.Q.",
       "description": "",
       "keywords": ""
+    },
+    "error": {
+      "title": "Rebels club | Page not found",
+      "description": "",
+      "keywords": ""
     }
   },
   "form": {
@@ -65,6 +70,30 @@
     "terms": "Terms & Conditions",
     "copyright": "All rights reserved"
   },
+  "index": {
+    "banner": {
+      "title": {
+        "span1": "Web 3 moves fast",
+        "span2": "We move faster"
+      },
+      "text": "Rebel’s Club is a community of renegade creators, collectors, developers, and artists seeking to enhance the Web 3 experience. We are driven by a desire to create because of our need to survive. We are driven to facilitate creation because we know progress can only be made together."
+    },
+    "projects": "Featured projects",
+    "news": {
+      "title": "Whats new?",
+      "more": "Learn more"
+    },
+    "world": "Dive in our world",
+    "partners": "Partners",
+    "residents": "Metaverse residents",
+    "form": "Create with us",
+    "team": "Council board",
+    "promo": "Ready to enter web3?",
+    "socials": {
+      "text": "Want to keep up with the us?",
+      "title": "Sign up for our twitter & join discord to get the latest news and updates."
+    }
+  },
   "roadmap": {
     "title": "Roadmap",
     "text": "We have extensive expertise in web3 and ready to launch any kind of projects together! Consult with us, create with us, launch with us!",
@@ -91,5 +120,9 @@
   "faq": {
     "title": "F.A.Q.",
     "text": "A collection of degenerates, punks, and misfits. Gods of the metaverse & masters of our own universe. DeGods can be converted to DeadGods with DUST. A collection of degenerates, punks, and misfits. Gods of the metaverse & masters of our own universe. DeGods can be converted to DeadGods with DUST."
+  },
+  "error": {
+    "text": "We can't find the page you need",
+    "btn": "Back to main page"
   }
 }

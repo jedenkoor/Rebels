@@ -24,6 +24,7 @@
 <script>
 export default {
   name: 'FaqPage',
+  layout: 'page',
   data () {
     return {
       activeIndex: null,

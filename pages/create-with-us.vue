@@ -11,6 +11,7 @@
 <script>
 export default {
   name: 'CreatePage',
+  layout: 'page',
   head () {
     return {
       title: this.$t('meta.create-with-us.title'),

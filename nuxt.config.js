@@ -2,6 +2,7 @@ const isDev = process.env.NODE_ENV !== 'production'
 const prodUrl = 'https://rebels.com'
 
 export default {
+  loading: false,
   target: 'static',
   publicRuntimeConfig: {
     prodUrl
@@ -22,15 +23,12 @@ export default {
       { hid: 'og:image:type', property: 'og:image:type', content: 'image/jpeg' },
       { hid: 'og:image:width', property: 'og:image:width', content: '1446' },
       { hid: 'og:image:height', property: 'og:image:height', content: '936' },
-
-      { name: 'theme-color', content: '#ffffff' }
     ],
     link: [
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon/apple-touch-icon.png' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
-      { rel: 'manifest', href: '/favicon/site.webmanifest' },
-      { rel: 'mask-icon', href: '/favicon/safari-pinned-tab.svg', color: '#ffffff' }
+      { rel: 'manifest', href: '/favicon/site.webmanifest' }
     ]
   },
 
@@ -56,6 +54,7 @@ export default {
   plugins: [
     '~/plugins/scrollto.js',
     '~/plugins/router',
+    '~/plugins/kinesis.js',
     { src: '~/plugins/v-click-outside.js', mode: 'client' },
     { src: '~/plugins/v-scroll-lock.js', mode: 'client' },
     { src: '~/plugins/vuelidate', ssr: false }
@@ -102,7 +101,8 @@ export default {
       defaultImage: '/images/placeholder.png',
 
       observerConfig: {
-        rootMargin: '800px 0px 800px 0px'
+        // rootMargin: '800px 0px 800px 0px'
+        rootMargin: '10000px 0px 10000px 0px'
       }
     }],
     ['@nuxtjs/i18n', {

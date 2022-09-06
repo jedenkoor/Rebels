@@ -46,6 +46,7 @@
 <script>
 export default {
   name: 'RoadmapPage',
+  layout: 'page',
   data () {
     return {
       showedContent: false,

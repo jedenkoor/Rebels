@@ -4,7 +4,8 @@
 
 <script>
 export default {
-  name: 'TermsPage'
+  name: 'TermsPage',
+  layout: 'page'
 }
 </script>
 

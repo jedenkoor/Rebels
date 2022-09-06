@@ -15,10 +15,13 @@
   --gradient-stroke: linear-gradient(135deg, #694AC2 0%, #4489BB 100%);
 
   --container-padding: 3.2rem;
-  --section-margin: 22.4rem;
-  --top-padding: 10.4rem;
-  @include w1199 {
-    --section-margin: 12rem;
+  --section-margin: 20rem;
+  --top-padding: 10.7rem;
+  @include w1300 {
+    --top-padding: 8.9rem;
+    --section-margin: 16rem;
+  }
+  @include w1023 {
     --top-padding: 6.4rem;
   }
   @include w699 {
@@ -46,9 +49,6 @@ html {
   &::-webkit-scrollbar-track {
     background: var(--main-bg);
   }
-  &.loaded body{
-    opacity: 1;
-  }
   &.fixed {
     overflow: hidden;
     body {
@@ -71,8 +71,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-font-smoothing: antialiased;
-  opacity: 0;
-  transition: opacity 0.2s;
   @include w1199 {
     font-size: 1.4rem;
   }
@@ -196,6 +194,19 @@ input[type='number'] {
   }
 }
 
+.h2title {
+  margin-top: 0;
+  margin-bottom: 4rem;
+  font-weight: 900;
+  font-size: 4.8rem;
+  line-height: 1.2;
+  @include w1023 {
+    margin-bottom: 3.2rem;
+    font-size: 3.2rem;
+    line-height: 1.25;
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -253,6 +264,24 @@ input[type='number'] {
     @include active {
       &:active {
         background-color: var(--additional-violet);
+      }
+    }
+  }
+  &-tertiary {
+    background: var(--additional-opensea);
+    border: 0.1rem solid var(--additional-opensea);
+    transition: background-color 0.2s, border-color 0.2s;
+    @include hover {
+      &:hover,
+      &:focus {
+        background-color: var(--additional-violet);
+        border-color: var(--additional-violet);
+      }
+    }
+    @include active {
+      &:active {
+        background-color: var(--additional-violet);
+        border-color: var(--additional-violet);
       }
     }
   }

@@ -22,7 +22,7 @@ export default {
       { hid: 'og:image', property: 'og:image', content: '/share.jpg' },
       { hid: 'og:image:type', property: 'og:image:type', content: 'image/jpeg' },
       { hid: 'og:image:width', property: 'og:image:width', content: '1446' },
-      { hid: 'og:image:height', property: 'og:image:height', content: '936' },
+      { hid: 'og:image:height', property: 'og:image:height', content: '936' }
     ],
     link: [
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon/apple-touch-icon.png' },
@@ -101,8 +101,7 @@ export default {
       defaultImage: '/images/placeholder.png',
 
       observerConfig: {
-        // rootMargin: '800px 0px 800px 0px'
-        rootMargin: '10000px 0px 10000px 0px'
+        rootMargin: '800px 0px 800px 0px'
       }
     }],
     ['@nuxtjs/i18n', {

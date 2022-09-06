@@ -6,8 +6,7 @@
           <span>{{ $t('index.banner.title.span1') }}</span>
           <span>{{ $t('index.banner.title.span2') }}</span>
         </h1>
-<!--        <p class="banner__text">{{ $t('index.banner.text') }}</p>-->
-        <p class="banner__text">Private community of industry leading game developers, creators, traders, collectors and web3 lovers.</p>
+        <p class="banner__text">{{ $t('index.banner.text') }}</p>
         <div class="banner__btns">
           <a href="#" class="btn btn-tertiary banner__btn opensea">
             <img v-lazy-load data-src="/images/index/opensea.png" alt="Opensea">

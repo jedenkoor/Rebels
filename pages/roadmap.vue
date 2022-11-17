@@ -3,14 +3,6 @@
     <div class="container">
       <h1 class="title roadmap__title">{{ $t('roadmap.title') }}</h1>
       <p class="roadmap__text">{{ $t('roadmap.text') }}</p>
-      <ul class="roadmap__statuses">
-        <li v-for="(item, index) in statuses" :key="index" class="roadmap__status">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="5" cy="5" r="5" :fill="item"/>
-          </svg>
-          {{ $t(`roadmap.statuses[${index}]`) }}
-        </li>
-      </ul>
       <ul class="roadmap__items" ref="roadmapItemsContainer">
         <li v-for="(item, index) in items" :key="index" class="roadmap__item">
           <div class="roadmap-item__scalable" :class="{ 'active': index === activeIndex }" ref="roadmapItems">
@@ -29,7 +21,7 @@
                     <div class="roadmap-item__text" v-html="item.text"/>
                     <ul v-if="item.games" class="roadmap-item__games">
                       <li v-for="(game, gameIndex) in item.games" :key="gameIndex" class="roadmap-item__game">
-                        <RoadmapGame :game="game" :statuses="statuses" :game-index="gameIndex" :roadmap-index="index"/>
+                        <RoadmapGame :game="game"/>
                       </li>
                     </ul>
                   </div>
@@ -52,68 +44,59 @@ export default {
       showedContent: false,
       heightBlock: null,
       activeIndex: null,
-      statuses: [
-        '#4DC9FF',
-        '#C729FF',
-        '#FFB800',
-        '#6F8EFF',
-        '#6F8EFF',
-        '#14FF00',
-        '#04DB00'
-      ],
       items: [
         {
           image: '/images/roadmap/item1.png',
-          title: 'Vision & Values',
-          text: '<b>Vision</b><p>We are the Rebels of the metaverse. We are the trendsetters seeking to pioneer a new fusion between traditional gaming and Web 3 decentralization. We are a community of individuals unafraid to challenge the status quo of what really means to game. Together, we are pushing the boundaries of what was previously thought impossible in Web 3’s GameFi industry.</p><p>Our vision is to create the largest sustainable P2E gaming networks in the metaverses. A metaverse that is of the people, by the people, and for the people.</p><b>Values</b><p>The Community. Our community is central to every decision we make. The moment we make a decision without the interests of our community in mind is the moment we are no longer fit to lead and develop. That moment will never come because we know we are nothing without the support of our community.</p><p>The Process. Nothing in the world is worth having or worth doing unless it means effort, pain, and difficulty. We know that for better or for worse, this space moves fast and decentralized movements can flip in the blink of an eye. However, good things take time and as we develop our vision we’ll be right there supporting you in every way we can every step of the way.</p>'
+          title: 'Web3 launchpad',
+          text: '<b>What kind of project we launch and how can we help?</b><p>Rebel\'s Club\'s launchpad aspires to build one of the largest community-driven Web3 incubators in the world. Guided by a Council of Rebels comprised of individuals who respect both the entrepreneurial spirit and the company-building process, Rebel\'s Club aims to steer founders and their projects to the forefront of their industries. Our goal is to guide and connect entrepreneurs, investors, executives, academics, and engineers, amongst others, using the network we\'ve built and the experience we\'ve acquired throughout our journey. Rebel\'s Club will leverage every tool in its arsenal to support its incubatees. Right now we are focused on gaming idustry & </p>',
+          games: [
+            {
+              title: 'Rebel Run Meta Mania',
+              text: 'Mobile endless runner game with sustainable tokonomics. A hypothesis to show how game studios  can utilize blockchain sustainably to boost revenue & retention, as well as give value back to players',
+              status: {
+                text: 'Beta',
+                color: '#407FDB'
+              }
+            },
+            {
+              title: 'Arfland platform',
+              text: 'Platform for game studios and players.',
+              status: {
+                text: 'In progress',
+                color: '#C87A04'
+              }
+            },
+            {
+              title: 'Still Early brand',
+              text: 'Clothign & Apparel brand focused on web3 culture',
+              status: {
+                text: 'In progress',
+                color: '#C87A04'
+              }
+            },
+            {
+              title: 'SEB energy projecy',
+              text: 'Tokenized security of solar energy plant with divendends payout in stables',
+              status: {
+                text: 'In progress',
+                color: '#C87A04'
+              }
+            }
+          ]
         },
         {
           image: '/images/roadmap/item2.png',
-          title: 'GameFi & Entertainment',
-          text: '<p>We are the Rebels of the metaverse. We are the trendsetters seeking to pioneer a new fusion between traditional gaming and Web 3 decentralization. We are a community of individuals unafraid to challenge the status quo of what really means to game. Together, we are pushing the boundaries of what was previously thought impossible in Web 3’s GameFi industry.</p>',
-          games: [
-            {
-              link: '#',
-              title: 'Rebel Run',
-              text: 'Mobile endless runner game',
-              status: 1
-            },
-            {
-              link: '#',
-              title: 'Spellix World',
-              text: 'Mobile endless runner game',
-              status: 3
-            },
-            {
-              link: '#',
-              title: 'Inception Metaverse',
-              text: 'Сommunity-driven open-world platform',
-              status: 3
-            }
-          ]
+          title: 'GameFi & Metaverse',
+          text: ''
         },
         {
           image: '/images/roadmap/item3.png',
-          title: 'Metaverse',
-          text: '<p>We are the Rebels of the metaverse. We are the trendsetters seeking to pioneer a new fusion between traditional gaming and Web 3 decentralization. We are a community of individuals unafraid to challenge the status quo of what really means to game. Together, we are pushing the boundaries of what was previously thought impossible in Web 3’s GameFi industry.</p>',
-          games: [
-            {
-              link: '#',
-              title: 'Sandbox',
-              text: 'Mobile endless runner game ',
-              status: 1
-            },
-            {
-              link: '#',
-              title: 'Otherside',
-              text: 'Mobile endless runner game',
-              status: 1
-            }
-          ]
+          title: 'Market Insights',
+          text: ''
         },
         {
           image: '/images/roadmap/item4.png',
-          title: 'Infrustructure',
+          title: 'Community & Networking',
           text: ''
         },
         {
@@ -193,8 +176,8 @@ export default {
 <style lang="scss" scoped>
 .roadmap {
   &__text {
-    max-width: 72.6rem;
-    margin-bottom: 3.2rem;
+    max-width: 75.8rem;
+    margin-bottom: 4rem;
     color: var(--additional-gray);
   }
   &__statuses {
@@ -461,24 +444,11 @@ export default {
     }
     &__games {
       max-width: 77rem;
-      margin-top: 6.6rem;
       padding-left: 0;
       list-style: none;
-      @media screen and (min-width: 1024px) and (max-width: 1199px) {
-        margin-top: 4rem;
-      }
     }
     &__game {
-      & + & {
-        margin-top: 4rem;
-        @media screen and (min-width: 1024px) and (max-width: 1199px) {
-          margin-top: 3rem;
-        }
-        @include w699 {
-          margin-top: 3.2rem;
-        }
-      }
-
+      margin-top: 2.4rem;
     }
   }
 }

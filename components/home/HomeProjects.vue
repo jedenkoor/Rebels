@@ -1,7 +1,8 @@
 <template>
   <section class="section-margin projects">
     <div class="container">
-      <h2 class="h2title projects__title">{{ $t('index.projects') }}</h2>
+      <h1 class="title projects__title">{{ $t('index.projects') }}</h1>
+      <p class="projects__text">{{ $t('index.projects') }}</p>
       <ul class="projects__list">
         <li v-for="(item, index) in projects" :key="index" class="projects__item">
           <NuxtLink :to="item.link" class="projects-item__link">
@@ -30,7 +31,7 @@
 
 <script>
 export default {
-  name: 'IndexProjects',
+  name: 'HomeProjects',
   data () {
     return {
       projects: [
@@ -45,21 +46,6 @@ export default {
           text: 'What benefits do i get with genesis pass?',
           logo: '/images/index/projects/game2-name.png',
           image: '/images/index/projects/game2.png'
-        },
-        {
-          link: '#',
-          logo: '/images/index/projects/game3-name.png',
-          image: '/images/index/projects/game3.png'
-        },
-        {
-          link: '#',
-          logo: '/images/index/projects/game4-name.png',
-          image: '/images/index/projects/game4.png'
-        },
-        {
-          link: '#',
-          logo: '/images/index/projects/game5-name.png',
-          image: '/images/index/projects/game5.png'
         }
       ]
     }
@@ -72,7 +58,7 @@ export default {
   &__list {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 37.4rem 21.8rem;
+    grid-template-rows: 37.4rem;
     grid-gap: 2.4rem;
     padding-left: 0;
     list-style: none;

@@ -7,10 +7,6 @@
           <p class="socials__title">{{ $t('index.socials.title') }}</p>
         </div>
         <div class="socials__btns">
-          <a href="#" class="btn btn-tertiary socials__btn opensea">
-            <img v-lazy-load data-src="/images/index/opensea.png" alt="Opensea">
-            Opensea
-          </a>
           <a href="#" class="btn btn-secondary socials__btn discord">
             <img v-lazy-load data-src="/images/index/discord.png" alt="Discord">
             Discord
@@ -23,7 +19,7 @@
 
 <script>
 export default {
-  name: 'IndexSocials'
+  name: 'HomeSocials'
 }
 </script>
 
@@ -41,7 +37,8 @@ export default {
     border-radius: 1.6rem;
     @include w1023 {
       flex-direction: column;
-      text-align: center;
+      align-items: flex-start;
+      padding: 3.2rem;
     }
     @include w699 {
       padding: 1.6rem;
@@ -56,7 +53,7 @@ export default {
     color: var(--additional-violet);
   }
   &__title {
-    max-width: 80%;
+    max-width: 82%;
     font-weight: 900;
     font-size: 3.2rem;
     line-height: 1.25;
@@ -74,6 +71,9 @@ export default {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    @include w1023 {
+      margin: 0 auto;
+    }
     @include w699 {
       width: 100%;
       flex-direction: column;

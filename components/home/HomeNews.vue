@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'IndexNews',
+  name: 'HomeNews',
   data () {
     return {
       news: [
@@ -88,14 +88,17 @@ export default {
   &__list {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 12.3rem;
-    grid-auto-rows: 12.3rem;
-    grid-gap: 0.8rem 2.4rem;
+    grid-template-rows: 12.4rem;
+    grid-auto-rows: 12.4rem;
+    grid-gap: 2.4rem 2.4rem;
     padding-left: 0;
     list-style: none;
     @include w1023 {
-      grid-template-rows: auto;
-      grid-auto-rows: 12.6rem;
+      grid-gap: 1rem;
+    }
+    @include w699 {
+      grid-template-rows: 10.8rem;
+      grid-auto-rows: 10.8rem;
     }
   }
   &__item {
@@ -123,16 +126,13 @@ export default {
       grid-column: span 7;
       grid-row: span 4;
       @include w1300 {
-        grid-column: span 6;
-        height: 39.3rem;
+        grid-column: span 12;
       }
       @include w1023 {
-        grid-column: 1 / -1;
-        grid-row: auto;
-        height: 36.8rem;
+        grid-row: span 3;
       }
       @include w699 {
-        height: 22.5rem;
+        grid-row: span 2;
       }
       .news-item {
         &__link {
@@ -197,6 +197,9 @@ export default {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      @include w699 {
+        font-size: 1.6rem;
+      }
     }
     &__text {
       margin-bottom: 0;

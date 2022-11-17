@@ -1,24 +1,12 @@
 <template>
-  <kinesis-container tag="section" class="promo">
+  <section tag="section" class="promo">
     <h2 class="promo__title">{{ $t('index.promo') }}</h2>
     <div class="promo__box">
       <img src="/images/index/promo/promo.png" :alt="$t('index.promo')" class="promo__img">
-      <kinesis-element
-        tag="img"
-        src="/images/index/promo/promo-left.png"
-        :alt="$t('index.promo')"
-        class="promo__left"
-        :strength="-10"
-      />
-      <kinesis-element
-        tag="img"
-        src="/images/index/promo/promo-right.png"
-        :alt="$t('index.promo')"
-        class="promo__right"
-        :strength="-10"
-      />
+      <img class="promo__left" src="/images/index/promo/promo-left.png" :alt="$t('index.promo')">
+      <img class="promo__right" src="/images/index/promo/promo-right.png" :alt="$t('index.promo')">
     </div>
-  </kinesis-container>
+  </section>
 </template>
 
 <script>
@@ -70,6 +58,19 @@ export default {
     right: 2rem;
     width: 34%;
     height: auto;
+    animation: bounce 4s ease-in-out infinite reverse;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0)
+  }
+  50% {
+    transform: translateY(2rem)
+  }
+  100% {
+    transform: translateY(0)
   }
 }
 </style>

@@ -21,30 +21,15 @@
           </ul>
         </nav>
         <div class="header__info">
-          <a href="#" class="header-info__social discord"/>
-          <a href="#" class="header-info__social twitter"/>
-          <div class="header-info__dropdown" v-click-outside="() => openedDropdown = false">
-            <button class="btn btn-secondary header-info-dropdown__btn" @click.prevent="openedDropdown = !openedDropdown">
-              {{ $t('header.buy') }}
-              <svg v-if="!openedDropdown" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.99996 8.50829L11.2541 4.2541L12.0791 5.07906L6.99996 10.1582L1.92081 5.07906L2.74577 4.2541L6.99996 8.50829Z" fill="currentColor"/>
-              </svg>
-              <svg v-if="openedDropdown" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.46448 3.53546L10.5355 10.6065" stroke="white"/>
-                <path d="M3.4646 10.6066L10.5357 3.5355" stroke="currentColor"/>
-              </svg>
-            </button>
-            <transition name="fade">
-              <ul v-if="openedDropdown" class="header-info-dropdown__list">
-                <li class="header-info-dropdown__item">
-                  <a href="#" class="header-info-dropdown__link">Opensea</a>
-                </li>
-                <li class="header-info-dropdown__item">
-                  <a href="#" class="header-info-dropdown__link">Looksrare</a>
-                </li>
-              </ul>
-            </transition>
-          </div>
+          <a href="#" class="header-info__social discord">
+            <span>Discord</span>
+          </a>
+          <a href="#" class="header-info__social twitter">
+            <span>Twitter</span>
+          </a>
+          <button class="btn btn-secondary header-info__btn">
+            {{ $t('header.buy') }}
+          </button>
         </div>
       </div>
       <button :class="['header__burger', { 'active': openedMenu }]" @click.prevent="openedMenu = !openedMenu"/>
@@ -61,8 +46,10 @@ export default {
       openedMenu: false,
       menu: [
         '/',
+        '/projects/',
         '/roadmap/',
-        '/create-with-us/',
+        '/about/',
+        '/contact/',
         '/vacancies/',
         '/faq/',
         'https://google.com'
@@ -81,7 +68,7 @@ export default {
 <style lang="scss" scoped>
 .header {
   position: relative;
-  z-index: 10;
+  z-index: 20;
   border-bottom: 0.1rem solid rgba(164, 161, 164, 0.2);
   &__container {
     display: flex;
@@ -113,7 +100,7 @@ export default {
     display: flex;
     align-items: center;
     flex: 1;
-    @include w1023 {
+    @include w1300 {
       position: fixed;
       z-index: 2;
       top: 0;
@@ -124,29 +111,38 @@ export default {
       transition: clip-path 0.6s cubic-bezier(.645,.045,.355,1), visibility 0s 0s;
       clip-path: polygon(0 0,calc(100% + 100vw) 0,100% 100%,-100vw 100%);
       visibility: visible;
+      flex-direction: column;
+      padding-top: 8rem;
+      overflow-y: auto;
     }
     &:not(.opened) {
-      @include w1023 {
+      @include w1300 {
         clip-path: polygon(100% 0, 100% 0, 0 100%, 0 100%);
         visibility: hidden;
         transition: clip-path 0.6s cubic-bezier(.645,.045,.355,1), visibility 0s 0.6s;
       }
     }
+    &:before {
+      @include w1300 {
+        content: '';
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8rem;
+        background: var(--main-bg);
+      }
+    }
   }
   &__nav {
-    @include w1023 {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+    @include w1300 {
+      width: 100%;
+      padding: 0 3.2rem;
+      border-top: 0.1rem solid rgba(164, 161, 164, 0.2);
     }
     @include w699 {
-      top: auto;
-      bottom: 15%;
-      transform: translateX(-50%);
-    }
-    @include w389 {
-      bottom: 10%;
+      padding: 0 1.6rem;
     }
   }
   &__menu {
@@ -154,20 +150,17 @@ export default {
     align-items: center;
     padding-left: 0;
     list-style: none;
-    @include w1023 {
+    @include w1300 {
       flex-direction: column;
+      align-items: stretch;
     }
   }
   &-menu {
     &__item {
       &:not(:last-child) {
         margin-right: 3.2rem;
-        @include w1199 {
-          margin-right: 2.4rem;
-        }
-        @include w1023 {
+        @include w1300 {
           margin-right: 0;
-          margin-bottom: 3.2rem;
         }
       }
     }
@@ -188,15 +181,14 @@ export default {
           color: var(--additional-gray);
         }
       }
-      @include w1023 {
+      @include w1300 {
         height: auto;
-        font-weight: 900;
-        font-size: 3.2rem;
+        padding: 1.7rem 0;
+        font-weight: 700;
+        font-size: 2rem;
         line-height: 1.25;
         white-space: nowrap;
-      }
-      @include w389 {
-        font-size: 2.8rem;
+        border-bottom: 0.1rem solid rgba(164, 161, 164, 0.2);
       }
       &.nuxt-link-exact-active {
         &:before {
@@ -208,7 +200,7 @@ export default {
           height: 0.2rem;
           background: var(--gradient-violet);
           border-radius: 1rem 1rem 0 0;
-          @include w1023 {
+          @include w1300 {
             display: none;
           }
         }
@@ -217,7 +209,7 @@ export default {
         width: 1.4rem;
         height: auto;
         margin-left: 0.8rem;
-        @include w1023 {
+        @include w1300 {
           width: 2.4rem;
         }
       }
@@ -227,110 +219,114 @@ export default {
     display: flex;
     align-items: center;
     margin-left: auto;
-    @include w1023 {
-      position: absolute;
-      top: 12rem;
-      right: 3.2rem;
-      left: 3.2rem;
+    @include w1300 {
+      width: 100%;
+      flex-direction: column;
+      padding: 0 3.2rem;
     }
     @include w699 {
-      top: 11.2rem;
-      right: 1.6rem;
-      left: 1.6rem;
+      padding: 0 1.6rem;
     }
   }
   &-info {
     &__social {
-      width: 4rem;
-      height: 4rem;
       margin-right: 1.6rem;
-      transition: opacity 0.2s;
       @include hover {
         &:hover,
         &:focus {
-          opacity: 0.8;
+          color: var(--additional-gray);
+          &:after {
+            opacity: 0.8;
+          }
         }
       }
       @include active {
         &:active {
-          opacity: 0.8;
+          color: var(--additional-gray);
+          &:after {
+            opacity: 0.8;
+          }
         }
       }
-      &.discord {
+      @include w1300 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 0;
+        padding: 1.5rem 0;
+        border-bottom: 0.1rem solid rgba(164, 161, 164, 0.2);
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 1.25;
+      }
+      &:after {
+        content: '';
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        transition: opacity 0.2s;
+        @include w1300 {
+          width: 3rem;
+          height: 3rem;
+        }
+      }
+      &.discord:after {
         background: url('/images/discord.png') center/contain no-repeat;
       }
       &.twitter {
-        background: url('/images/twitter.png') center/contain no-repeat;
-        @include w1023 {
-          margin-right: 0;
+        @include w1300 {
+          order: -1;
+        }
+        &:after {
+          background: url('/images/twitter.png') center/contain no-repeat;
+        }
+      }
+      span {
+        display: none;
+        @include w1300 {
+          display: block;
         }
       }
     }
-    &__dropdown {
-      position: relative;
-      @include w1023 {
-        order: -1;
-        margin-right: auto;
-      }
-    }
-    &-dropdown {
-      &__btn {
-        padding: 0.8rem 1.1rem 0.8rem 1.5rem;
-        font-weight: 400;
-        @include hover {
-          &:hover,
-          &:focus {
-            background-color: var(--additional-black);
+    &__btn {
+      padding: 0.8rem 1.1rem 0.8rem 1.5rem;
+      font-weight: 400;
+      transition: 0.2s;
+      @include hover {
+        &:hover,
+        &:focus {
+          background-color: var(--additional-black);
+          @include w1300 {
+            background-color: transparent;
+            color: var(--additional-gray);
           }
         }
-        @include active {
-          &:active {
-            background-color: var(--additional-black);
+      }
+      @include active {
+        &:active {
+          background-color: var(--additional-black);
+          @include w1300 {
+            background-color: transparent;
+            color: var(--additional-gray);
           }
         }
-        svg {
-          width: 1.4rem;
-          height: auto;
-          margin-left: 0.8rem;
-        }
       }
-      &__list {
-        position: absolute;
-        top: calc(100% + 0.4rem);
-        min-width: 12.8rem;
-        padding: 0.4rem 0;
-        list-style: none;
-        background-color: var(--main-bg);
-        border: 0.1rem solid var(--additional-black);
-        border-radius: 0.8rem;
-        @include w1610 {
-          right: 0;
-        }
-        @include w1023 {
-          right: auto;
-          left: 0;
-        }
+      @include w1300 {
+        order: -2;
+        width: 100%;
+        padding: 1.7rem 0;
+        border: none;
+        border-bottom: 0.1rem solid rgba(164, 161, 164, 0.2);
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 1.25;
+        justify-content: flex-start;
       }
-      &__item {
-        & + & {
-          border-top: 0.1rem solid var(--additional-black);
-        }
-      }
-      &__link {
-        display: flex;
-        padding: 0.8rem;
-        transition: background-color 0.2s;
-        @include hover {
-          &:hover,
-          &:focus {
-            background-color: var(--additional-black);
-          }
-        }
-        @include active {
-          &:active {
-            background-color: var(--additional-black);
-          }
-        }
+      svg {
+        width: 1.4rem;
+        height: auto;
+        margin-left: 0.8rem;
       }
     }
   }
@@ -347,7 +343,7 @@ export default {
     border-radius: 0.8rem;
     background: none;
     cursor: pointer;
-    @include w1023 {
+    @include w1300 {
       display: flex;
     }
     &.active {

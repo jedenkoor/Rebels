@@ -1,34 +1,42 @@
 <template>
   <section class="section-margin companies">
     <div class="container">
-      <h2 class="companies__title">{{ $t('index.partners') }}</h2>
-      <ul class="companies__list partners">
-        <li v-for="(item, index) in partners" :key="index" class="companies__item">
-          <img v-lazy-load :data-src="item" :alt="`partner${++index}`" class="companies-item__img">
-        </li>
-      </ul>
-      <h2 class="companies__title">{{ $t('index.residents') }}</h2>
-      <ul class="companies__list residents">
+      <div class="companies__top">
+        <h2 class="h2title companies__title">{{ $t('index.residents') }}</h2>
+        <a href="#" class="btn btn-secondary companies__btn">
+          {{ $t('index.residents-btn') }}
+        </a>
+      </div>
+      <ul class="section-margin companies__list residents">
         <li v-for="(item, index) in residents" :key="index" class="companies__item">
           <img v-lazy-load :data-src="item" :alt="`resident${++index}`" class="companies-item__img">
         </li>
         <li class="companies__item">25+</li>
       </ul>
-      <NuxtLink to="/create-with-us/" class="btn btn-secondary companies__btn">
-        {{ $t('index.form') }}
-      </NuxtLink>
+      <div class="companies__top">
+        <h2 class="h2title companies__title">{{ $t('index.partners') }}</h2>
+        <a href="#" class="btn btn-secondary companies__btn">
+          {{ $t('index.partners-btn') }}
+        </a>
+      </div>
+      <ul class="companies__list partners">
+        <li v-for="(item, index) in partners" :key="index" class="companies__item">
+          <img v-lazy-load :data-src="item" :alt="`partner${++index}`" class="companies-item__img">
+        </li>
+      </ul>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'IndexPartners',
+  name: 'HomePartners',
   data () {
     return {
       partners: [
         '/images/index/partners/partner1.png',
         '/images/index/partners/partner2.png',
+        '/images/index/partners/partner3.png',
         '/images/index/partners/partner3.png'
       ],
       residents: [
@@ -53,23 +61,24 @@ export default {
 
 <style lang="scss" scoped>
 .companies {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
   &__title {
-    margin-top: 0;
-    margin-bottom: 6rem;
-    font-weight: 500;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    color: var(--additional-gray);
-    text-transform: uppercase;
-    text-align: center;
+    margin: 0;
+  }
+  &__btn {
+    padding: 1.5rem 2.4rem;
     @include w699 {
-      margin-bottom: 2.4rem;
+      display: none;
     }
   }
   &__list {
     display: grid;
     grid-gap: 2rem 2.4rem;
-    margin-bottom: 6rem;
     padding-left: 0;
     list-style: none;
     @include w1023 {
@@ -79,8 +88,7 @@ export default {
       grid-gap: 0.8rem 1rem;
     }
     &.partners {
-      max-width: 126.8rem;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       margin-right: auto;
       margin-left: auto;
     }
@@ -120,12 +128,6 @@ export default {
       width: 100%;
       height: auto;
     }
-  }
-  &__btn {
-    width: max-content;
-    display: block;
-    margin: 0 auto;
-    padding: 1.5rem 2.4rem;
   }
 }
 </style>

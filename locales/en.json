@@ -6,6 +6,11 @@
       "description": "",
       "keywords": ""
     },
+    "projects": {
+      "title": "Rebels club | Projects",
+      "description": "",
+      "keywords": ""
+    },
     "roadmap": {
       "title": "Rebels club | Roadmap",
       "description": "",
@@ -58,13 +63,15 @@
   "header": {
     "menu": [
       "Home",
+      "Projects",
       "Roadmap",
-      "Create with us",
+      "About us",
+      "Contact us",
       "Vacancies",
       "F.A.Q.",
       "Medium"
     ],
-    "buy": "Buy"
+    "buy": "Purchase membership"
   },
   "footer": {
     "terms": "Terms & Conditions",
@@ -72,40 +79,32 @@
   },
   "index": {
     "banner": {
-      "title": {
-        "span1": "Web 3 moves fast",
-        "span2": "We move faster"
-      },
-      "text": "Rebel’s Club is a community of renegade creators, collectors, developers, and artists seeking to enhance the Web 3 experience. We are driven by a desire to create because of our need to survive. We are driven to facilitate creation because we know progress can only be made together."
+      "text": "Rebels’ Club is a private community of creators, developers, designers, and likeminded people. Together we help launch web3 products and grow our brand. Members can expect exclusive access to the latest products, airdrops, merchandise and events through ownership."
     },
-    "projects": "Featured projects",
     "news": {
       "title": "Whats new?",
       "more": "Learn more"
     },
     "world": "Dive in our world",
-    "partners": "Partners",
     "residents": "Metaverse residents",
+    "residents-btn": "Integrate your project",
+    "partners": "Partners",
+    "partners-btn": "Become our partner",
     "form": "Create with us",
     "team": "Council board",
     "promo": "Ready to enter web3?",
     "socials": {
       "text": "Want to keep up with the us?",
-      "title": "Sign up for our twitter & join discord to get the latest news and updates."
+      "title": "Join discord to get the latest news and updates."
     }
+  },
+  "projects": {
+    "title": "Incubated projects",
+    "text": "Rebel’s club is united by people who love web3 and t push boundaries of blockchain application. We are here to create community owned world-wide known web3 brand."
   },
   "roadmap": {
     "title": "Roadmap",
-    "text": "We have extensive expertise in web3 and ready to launch any kind of projects together! Consult with us, create with us, launch with us!",
-    "statuses": [
-      "Planned",
-      "TBA",
-      "In development",
-      "Beta",
-      "Alpha",
-      "Done",
-      "Published"
-    ]
+    "text": "Rebel’s club is united by people who love web3 and t push boundaries of blockchain application. We are here to create community owned world-wide known web3 brand."
   },
   "create-with-us": {
     "title": "Let’s build together",

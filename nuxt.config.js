@@ -55,6 +55,7 @@ export default {
     '~/plugins/scrollto.js',
     '~/plugins/router',
     '~/plugins/kinesis.js',
+    { src: '~/plugins/v-typer.js', mode: 'client' },
     { src: '~/plugins/v-click-outside.js', mode: 'client' },
     { src: '~/plugins/v-scroll-lock.js', mode: 'client' },
     { src: '~/plugins/vuelidate', ssr: false }
@@ -65,7 +66,7 @@ export default {
     '~/components',
     { path: '~/components/svg/', prefix: 'svg' },
     { path: '~/components/form/', prefix: 'form' },
-    { path: '~/components/index/', prefix: 'index' },
+    { path: '~/components/home/', prefix: 'home' },
     { path: '~/components/roadmap/', prefix: 'roadmap' }
   ],
 
@@ -124,6 +125,8 @@ export default {
     }],
     '@nuxtjs/sitemap'
   ],
+
+  generate: { fallback: '404.html' },
 
   optimizedImages: {
     optimizeImages: true
@@ -196,5 +199,9 @@ export default {
   extend (config, ctx) {
     // eslint-disable-next-line no-param-reassign
     config.devtool = ctx.isClient ? 'eval-source-map' : 'inline-source-map'
+  },
+
+  server: {
+    host: '0.0.0.0'
   }
 }

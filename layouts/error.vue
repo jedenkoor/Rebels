@@ -11,7 +11,6 @@
             <span>{{ $t('error.btn') }}</span>
           </NuxtLink>
         </div>
-        <img src="/images/error.png" alt="404">
       </div>
     </main>
   </div>
@@ -50,6 +49,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header {
+  @include hover {
+    padding-right: 0.6rem;
+  }
+}
 .content {
   display: flex;
   align-items: center;

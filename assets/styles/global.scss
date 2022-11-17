@@ -43,11 +43,11 @@ html {
     display: none;
   }
   &::-webkit-scrollbar-thumb {
-    background: var(--gradient-violet);
+    background: #646668;
     border-radius: 0.2rem;
   }
   &::-webkit-scrollbar-track {
-    background: var(--main-bg);
+    background: #210723;
   }
   &.fixed {
     overflow: hidden;
@@ -56,6 +56,7 @@ html {
     }
   }
   &.resizing {
+    .header *,
     .roadmap__item * {
       transition: none!important;
     }
@@ -306,6 +307,7 @@ input[type='number'] {
     display: block;
     margin-bottom: 0.8rem;
     font-weight: 700;
+    color: #FFF;
   }
   p + b {
     margin-top: 4rem;
@@ -422,5 +424,26 @@ input[type='number'] {
   }
   &__open-indicator {
     display: none;
+  }
+}
+
+.vue-typer {
+  display: flex;
+  .left {
+    background: linear-gradient(91.13deg, #71DDFF 7.41%, #879AFF 32.83%, #9F80FF 62.34%, #EF54F2 94.58%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  .custom.caret {
+    margin-left: 0.5rem;
+    width: 0.3rem;
+    background: var(--gradient-violet);
+  }
+  span.typed {
+    display: inline!important;
+    color: unset;
+    background-color: unset;
   }
 }

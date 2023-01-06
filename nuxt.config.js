@@ -3,7 +3,7 @@ const prodUrl = 'https://rebels.com'
 
 export default {
   loading: false,
-  target: 'static',
+  target: 'server',
   publicRuntimeConfig: {
     prodUrl
   },
@@ -126,8 +126,6 @@ export default {
     '@nuxtjs/sitemap'
   ],
 
-  generate: { fallback: '404.html' },
-
   optimizedImages: {
     optimizeImages: true
   },
@@ -185,6 +183,17 @@ export default {
 
   cache: true,
 
+  server: {
+    port: 3001,
+    allowedHosts: 'all',
+    host: '0.0.0.0'
+  },
+  vue: {
+    config: {
+      productionTip: false
+    }
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extractCSS: !isDev,
@@ -199,9 +208,5 @@ export default {
   extend (config, ctx) {
     // eslint-disable-next-line no-param-reassign
     config.devtool = ctx.isClient ? 'eval-source-map' : 'inline-source-map'
-  },
-
-  server: {
-    host: '0.0.0.0'
   }
 }
